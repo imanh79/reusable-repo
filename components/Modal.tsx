@@ -1,6 +1,13 @@
 "use client";
-import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+
 import { useState } from "react";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Description,
+} from "@headlessui/react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Modal = () => {
   let [isOpen, setIsOpen] = useState(false);
@@ -14,49 +21,64 @@ const Modal = () => {
   }
 
   return (
-    <div>
-      <Button
+    <>
+      <button
         onClick={open}
-        className="rounded-md bg-gray-200 dark:bg-black/20 py-2 px-4 text-sm font-medium text-black dark:text-white focus:outline-none data-[hover]:bg-gray-300 dark:data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-gray-800 dark:data-[focus]:outline-white"
+        className="w-32 h-12 text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
       >
         Open dialog
-      </Button>
+      </button>
 
-      <Dialog
-        open={isOpen}
-        as="div"
-        className="relative z-10 focus:outline-none"
-        onClose={close}
-      >
-        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4">
-            <DialogPanel
-              transition
-              className="w-full max-w-md rounded-xl bg-gray-100 dark:bg-gray-800 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
-            >
-              <DialogTitle
-                as="h3"
-                className="text-base/7 font-medium text-black dark:text-white"
+      <AnimatePresence>
+        {isOpen && (
+          <Dialog open={isOpen} onClose={close} className="relative z-50">
+            <motion.div
+              className="fixed inset-0 bg-black/50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+            <div className="fixed inset-0 flex items-center justify-center p-4">
+              <motion.div
+                className="w-full max-w-lg bg-white rounded-lg shadow-lg p-6 space-y-4"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
               >
-                Payment successful
-              </DialogTitle>
-              <p className="mt-2 text-sm/6 text-gray-700 dark:text-white/50">
-                Your payment has been successfully submitted. We’ve sent you an
-                email with all of the details of your order.
-              </p>
-              <div className="mt-4">
-                <Button
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-300 dark:bg-gray-500 py-1.5 px-3 text-sm/6 font-semibold text-black dark:text-white shadow-inner shadow-gray-300 dark:shadow-white/10 focus:outline-none data-[hover]:bg-gray-400 dark:data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-gray-800 dark:data-[focus]:outline-white data-[open]:bg-gray-300 dark:data-[open]:bg-gray-700"
-                  onClick={close}
-                >
-                  Got it, thanks!
-                </Button>
-              </div>
-            </DialogPanel>
-          </div>
-        </div>
-      </Dialog>
-    </div>
+                <DialogPanel>
+                  <DialogTitle className="text-lg font-semibold text-gray-900">
+                    Deactivate Account
+                  </DialogTitle>
+                  <Description className="text-sm text-gray-600">
+                    This will permanently deactivate your account
+                  </Description>
+                  <p className="text-gray-700 pb-6">
+                    Are you sure you want to deactivate your account?
+                  </p>
+                  <div className="flex gap-4 justify-end">
+                    <button
+                      onClick={close}
+                      className="px-4 py-2 text-white bg-gray-500 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={close}
+                      className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                    >
+                      Deactivate
+                    </button>
+                  </div>
+                </DialogPanel>
+              </motion.div>
+            </div>
+          </Dialog>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
+
 export default Modal;

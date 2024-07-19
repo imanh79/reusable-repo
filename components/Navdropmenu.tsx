@@ -2,7 +2,7 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 
 const Navdropmenu = () => {
   return (
-    <div className="flex h-screen w-full justify-center pt-20">
+    <div className="flex w-full justify-center pt-20">
       <div className="flex gap-8">
         <div className="text-sm/6 font-semibold text-gray-700 dark:text-white/50">
           Products

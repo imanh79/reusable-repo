@@ -7,7 +7,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const Accordion = () => {
   return (
-    <div className="h-screen w-full pt-32 px-4">
+    <div className=" w-full  px-4">
       <div className="mx-auto w-full max-w-lg divide-y divide-gray-200 dark:divide-white/5 rounded-xl bg-gray-100 dark:bg-gray-800">
         <Disclosure as="div" className="p-6" defaultOpen={true}>
           <DisclosureButton className="group flex w-full items-center justify-between">
