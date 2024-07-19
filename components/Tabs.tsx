@@ -59,16 +59,17 @@ const categories = [
     ],
   },
 ];
+
 const Tabs = () => {
   return (
-    <div className="flex  w-full justify-center pt-24 px-4">
+    <div className="flex w-full justify-center pt-24 px-4">
       <div className="w-full max-w-md">
         <TabGroup>
           <TabList className="flex gap-4">
             {categories.map(({ name }) => (
               <Tab
                 key={name}
-                className="rounded-full py-1 px-3 text-sm/6 font-semibold text-gray-900 dark:text-white focus:outline-none data-[selected]:bg-gray-300 dark:data-[selected]:bg-white/10 data-[hover]:bg-gray-200 dark:data-[hover]:bg-white/5 data-[selected]:data-[hover]:bg-gray-300 dark:data-[selected]:data-[hover]:bg-white/10 data-[focus]:outline-1 data-[focus]:outline-gray-800 dark:data-[focus]:outline-white"
+                className="rounded-full py-1 px-3 text-sm font-semibold text-gray-900 focus:outline-none data-[selected]:bg-gray-300 data-[hover]:bg-gray-200 data-[selected]:data-[hover]:bg-gray-300 data-[focus]:outline-1 data-[focus]:outline-gray-800"
               >
                 {name}
               </Tab>
@@ -76,25 +77,19 @@ const Tabs = () => {
           </TabList>
           <TabPanels className="mt-3">
             {categories.map(({ name, posts }) => (
-              <TabPanel
-                key={name}
-                className="rounded-xl bg-gray-100 dark:bg-white/5 p-3"
-              >
+              <TabPanel key={name} className="rounded-xl bg-gray-100 p-3">
                 <ul>
                   {posts.map((post) => (
                     <li
                       key={post.id}
-                      className="relative rounded-md p-3 text-sm/6 transition hover:bg-gray-200 dark:hover:bg-white/5"
+                      className="relative rounded-md p-3 text-sm transition hover:bg-gray-200"
                     >
-                      <a
-                        href="#"
-                        className="font-semibold text-gray-900 dark:text-white"
-                      >
+                      <a href="#" className="font-semibold text-gray-900">
                         <span className="absolute inset-0" />
                         {post.title}
                       </a>
                       <ul
-                        className="flex gap-2 text-gray-700 dark:text-white/50"
+                        className="flex gap-2 text-gray-700"
                         aria-hidden="true"
                       >
                         <li>{post.date}</li>
