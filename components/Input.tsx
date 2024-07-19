@@ -27,10 +27,10 @@ const Inputjs = () => {
     <div className="w-full max-w-md mx-auto px-4 py-6">
       <form onSubmit={handleSubmit}>
         <Field>
-          <Label className="block text-sm font-medium text-gray-900 dark:text-white">
+          <Label className="block text-sm font-medium text-gray-900">
             Mobile
           </Label>
-          <Description className="mt-1 text-sm text-gray-600 dark:text-white/50">
+          <Description className="mt-1 text-sm text-gray-600">
             Enter an Iranian phone number
           </Description>
           <Input
@@ -38,10 +38,10 @@ const Inputjs = () => {
             value={phoneNumber}
             onChange={handleChange}
             className={clsx(
-              "mt-2 block w-full rounded-lg border bg-gray-100 dark:bg-gray-700 py-2 px-3 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400",
+              "mt-2 block w-full rounded-lg border bg-gray-100 py-2 px-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500",
               {
                 "border-red-500": !isValid,
-                "border-gray-300 dark:border-gray-600": isValid,
+                "border-gray-300": isValid,
               }
             )}
             pattern="^09[0-9]{9}$"
@@ -59,9 +59,9 @@ const Inputjs = () => {
           className={clsx(
             "mt-4 w-full rounded-lg py-2 px-4 text-sm font-medium focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2",
             {
-              "bg-gray-500 dark:bg-gray-700 text-gray-300 dark:text-gray-500 cursor-not-allowed":
+              "bg-gray-500 text-gray-300 cursor-not-allowed":
                 !isValid || phoneNumber === "",
-              "bg-blue-500 dark:bg-blue-700 text-white cursor-pointer":
+              "bg-blue-500 text-white cursor-pointer":
                 isValid && phoneNumber !== "",
             }
           )}
