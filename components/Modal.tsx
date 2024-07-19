@@ -33,7 +33,7 @@ const Modal = () => {
         {isOpen && (
           <Dialog open={isOpen} onClose={close} className="relative z-50">
             <motion.div
-              className="fixed inset-0 bg-black/50"
+              className="fixed inset-0 bg-black/50 blurEffect"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

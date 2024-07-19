@@ -24,7 +24,7 @@ const Inputjs = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-4 py-6">
+    <div className="w-full max-w-md mx-auto px-4 py-4">
       <form onSubmit={handleSubmit}>
         <Field>
           <Label className="block text-sm font-medium text-gray-900">
@@ -37,21 +37,19 @@ const Inputjs = () => {
             type="text"
             value={phoneNumber}
             onChange={handleChange}
+            inputMode="decimal"
             className={clsx(
               "mt-2 block w-full rounded-lg border bg-gray-100 py-2 px-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500",
-              {
-                "border-red-500": !isValid,
-                "border-gray-300": isValid,
-              }
+             
             )}
             pattern="^09[0-9]{9}$"
             title="Please enter a valid Iranian phone number"
           />
-          {!isValid && (
+          {/* {!isValid && (
             <p className="text-red-500 text-sm mt-2">
               Invalid phone number. Please enter a valid Iranian phone number.
             </p>
-          )}
+          )} */}
         </Field>
         <Button
           type="submit"

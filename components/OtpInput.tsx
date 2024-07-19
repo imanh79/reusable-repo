@@ -34,18 +34,17 @@ const OtpInput = () => {
           type="text"
           value={otp}
           maxLength={6}
+          inputMode="decimal"
           onChange={handleChange}
-          className={`mt-2 block w-full rounded-lg border bg-gray-100 py-2 px-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-            !isValid && otp !== "" ? "border-red-500" : "border-gray-300"
-          }`}
+          className={`mt-2 block w-full rounded-lg border bg-gray-100 py-2 px-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 `}
           pattern="[0-9]{6}"
           title="Please enter a valid 6-digit OTP"
         />
-        {!isValid && otp !== "" && (
+        {/* {!isValid && otp !== "" && (
           <p className="text-red-500 text-sm mt-2">
             Invalid OTP. Please enter a valid 6-digit OTP.
           </p>
-        )}
+        )} */}
       </div>
       <button
         type="submit"
