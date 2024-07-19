@@ -23,13 +23,13 @@ const Inputjs = () => {
   return (
     <div className="w-full max-w-md mx-auto px-4">
       <Field>
-        <label className="text-sm/6 font-medium text-gray-900 dark:text-white">
+        <Label className="text-sm/6 font-medium text-gray-900 dark:text-white">
           Mobile
-        </label>
-        <p className="text-sm/6 text-gray-600 dark:text-white/50">
+        </Label>
+        <Description className="text-sm/6 text-gray-600 dark:text-white/50">
           Enter a iranian phone
-        </p>
-        <input
+        </Description>
+        <Input
           type="text"
           value={phoneNumber}
           onChange={handleChange}
@@ -47,7 +47,7 @@ const Inputjs = () => {
           </p>
         )} */}
       </Field>
-      <button
+      <Button
         type="submit"
         onClick={handleSubmit}
         disabled={!isValid || phoneNumber === ""}
@@ -58,7 +58,7 @@ const Inputjs = () => {
         }`}
       >
         Submit
-      </button>
+      </Button>
     </div>
   );
 };
