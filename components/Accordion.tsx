@@ -17,7 +17,7 @@ const Accordion = () => {
             <ChevronDownIcon className="size-5 fill-gray-600 dark:fill-white/60 group-data-[hover]:fill-gray-500 dark:group-data-[hover]:fill-white/50 group-data-[open]:rotate-180" />
           </DisclosureButton>
           <DisclosurePanel className="mt-2 text-sm/5 text-gray-600 dark:text-white/50">
-            If you're unhappy with your purchase, we'll refund you in full.
+            If youre unhappy with your purchase, well refund you in full.
           </DisclosurePanel>
         </Disclosure>
         <Disclosure as="div" className="p-6">
