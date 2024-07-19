@@ -2,6 +2,26 @@ import { Button, Description, Field, Input, Label } from "@headlessui/react";
 import clsx from "clsx";
 import { useState } from "react";
 
+// تابع تبدیل اعداد فارسی به انگلیسی
+const convertToEnglishNumbers = (inputValue: any) => {
+  const persianNumbers = [
+    /۰/g,
+    /۱/g,
+    /۲/g,
+    /۳/g,
+    /۴/g,
+    /۵/g,
+    /۶/g,
+    /۷/g,
+    /۸/g,
+    /۹/g,
+  ];
+  for (let i = 0; i < 10; i++) {
+    inputValue = inputValue.replace(persianNumbers[i], i);
+  }
+  return inputValue;
+};
+
 const Inputjs = () => {
   const isValidPhoneNumber = (phoneNumber: any) => {
     // Regex pattern for Iranian phone numbers starting with 09 and having 11 digits
@@ -13,7 +33,8 @@ const Inputjs = () => {
   const [isValid, setIsValid] = useState(true);
 
   const handleChange = (e: any) => {
-    const value = e.target.value;
+    let value = e.target.value;
+    value = convertToEnglishNumbers(value); // تبدیل اعداد فارسی به انگلیسی
     setPhoneNumber(value);
     setIsValid(isValidPhoneNumber(value));
   };
@@ -39,8 +60,7 @@ const Inputjs = () => {
             onChange={handleChange}
             inputMode="decimal"
             className={clsx(
-              "mt-2 block w-full rounded-lg border bg-gray-100 py-2 px-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500",
-             
+              "mt-2 block w-full rounded-lg border bg-gray-100 py-2 px-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             )}
             pattern="^09[0-9]{9}$"
             title="Please enter a valid Iranian phone number"
