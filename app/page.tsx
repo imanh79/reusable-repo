@@ -10,6 +10,9 @@ import OtpInput from "@/components/OtpInput";
 import Switchcheck from "@/components/Switchcheck";
 import Tabs from "@/components/Tabs";
 import Togglemenu from "@/components/Togglemenu";
+import Animation1 from "@/components/togglemenu/A1/animation1";
+import Animation2 from "@/components/togglemenu/A2/animation2";
+import Animation3 from "@/components/togglemenu/A3/animation3";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx";
 import { Fragment } from "react";
@@ -49,6 +52,13 @@ export default function Home() {
           </div>
           <div className="bg-white p-4 border rounded shadow flex justify-center">
             <Togglemenu />
+          </div>
+          <div className="bg-white p-4 border rounded shadow flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <Animation1 />
+              <Animation2 />
+              <Animation3 />
+            </div>
           </div>
         </div>
       </div>
