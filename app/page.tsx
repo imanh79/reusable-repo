@@ -13,6 +13,7 @@ import Togglemenu from "@/components/Togglemenu";
 import Animation1 from "@/components/togglemenu/A1/animation1";
 import Animation2 from "@/components/togglemenu/A2/animation2";
 import Animation3 from "@/components/togglemenu/A3/animation3";
+import Tricks from "@/components/tricks";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx";
 import { Fragment } from "react";
@@ -49,6 +50,9 @@ export default function Home() {
           </div>
           <div className="bg-white p-4 border rounded shadow flex justify-center">
             <Tabs />
+          </div>
+          <div className="bg-white p-4 border rounded shadow flex justify-center">
+            <Tricks />
           </div>
           <div className="bg-white p-4 border rounded shadow flex justify-center">
             <Togglemenu />

@@ -37,6 +37,7 @@ const Inputjs = () => {
     value = convertToEnglishNumbers(value); // تبدیل اعداد فارسی به انگلیسی
     setPhoneNumber(value);
     setIsValid(isValidPhoneNumber(value));
+    
   };
 
   const handleSubmit = (e: any) => {

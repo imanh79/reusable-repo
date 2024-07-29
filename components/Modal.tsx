@@ -12,18 +12,10 @@ import { AnimatePresence, motion } from "framer-motion";
 const Modal = () => {
   let [isOpen, setIsOpen] = useState(false);
 
-  function open() {
-    setIsOpen(true);
-  }
-
-  function close() {
-    setIsOpen(false);
-  }
-
   return (
     <>
       <button
-        onClick={open}
+        onClick={() => setIsOpen(true)}
         className="w-32 h-12 text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
       >
         Open dialog
@@ -31,7 +23,11 @@ const Modal = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <Dialog open={isOpen} onClose={close} className="relative z-50">
+          <Dialog
+            open={isOpen}
+            onClose={() => setIsOpen(false)}
+            className="relative z-50"
+          >
             <motion.div
               className="fixed inset-0 bg-black/50 blurEffect"
               initial={{ opacity: 0 }}
@@ -59,13 +55,13 @@ const Modal = () => {
                   </p>
                   <div className="flex gap-4 justify-end">
                     <button
-                      onClick={close}
+                      onClick={() => setIsOpen(false)}
                       className="px-4 py-2 text-white bg-gray-500 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
                     >
                       Cancel
                     </button>
                     <button
-                      onClick={close}
+                      onClick={() => setIsOpen(false)}
                       className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
                     >
                       Deactivate
@@ -82,3 +78,64 @@ const Modal = () => {
 };
 
 export default Modal;
+// const [openFilterModal, setOpenFilterModal] = useState(false);
+{/* <Transition appear show={openFilterModal} as={Fragment}>
+<Dialog
+  as="div"
+  className="relative z-50"
+  onClose={() => setOpenFilterModal(false)}
+>
+  <Transition.Child
+    as={Fragment}
+    enter="ease-out duration-300"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    leave="ease-in duration-200"
+    leaveFrom="opacity-100"
+    leaveTo="opacity-0"
+  >
+    <div className="fixed inset-0 blurEffect" />
+  </Transition.Child>
+
+  <div className="fixed inset-0 overflow-y-auto">
+    <div className="flex min-h-full items-center justify-center p-4 text-center">
+      <Transition.Child
+        as={Fragment}
+        enter="ease-out duration-300"
+        enterFrom="opacity-0 scale-95"
+        enterTo="opacity-100 scale-100"
+        leave="ease-in duration-200"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-95"
+      >
+        <Dialog.Panel className="w-full flex flex-col justify-between max-w-md transform rounded-2xl py-4 !bg-white p-1 text-left align-middle shadow-xl transition-all">
+          <Dialog.Title
+            as="button"
+            className="text-2xl font-medium text-center pb-3"
+          >
+            <input
+              className="border border-gray-400 py-2 px-4 rounded-lg text-center"
+              type="text"
+              placeholder="شناسه واریز را وارد کنید"
+              value={depositID}
+              onChange={(e) => setDepositID(e.target.value)} // Update the deposit ID state
+            />
+          </Dialog.Title>
+          <hr />
+          <div className="flex items-center justify-evenly">
+            <Dialog.Title
+              as="button"
+              className="text-2xl font-medium text-center mt-2"
+              onClick={() => {
+                postAllTransaction(selectedIndex, depositID);
+              }}
+            >
+              تایید
+            </Dialog.Title>
+          </div>
+        </Dialog.Panel>
+      </Transition.Child>
+    </div>
+  </div>
+</Dialog>
+</Transition> */}

@@ -1,8 +1,9 @@
+import userService from "@/Services/UserInfo/user.service";
 import { Button } from "@headlessui/react";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Btns = () => {
-  const handleButtonClick = (color:string) => {
+  const handleButtonClick = (color: string) => {
     navigator.clipboard
       .writeText(color)
       .then(() => {
@@ -12,7 +13,15 @@ const Btns = () => {
         console.error("Failed to copy: ", err);
       });
   };
-
+  const PostHandleruser = async () => {
+    console.log("result");
+    try {
+      const result = await userService.GetUserInfo({ data: "name" });
+    } catch {}
+  };
+  useEffect(() => {
+    PostHandleruser();
+  }, []);
   return (
     <div className="flex flex-wrap gap-2">
       <Button
