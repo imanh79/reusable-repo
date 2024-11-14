@@ -4,7 +4,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
+ 
 const Accordion = () => {
   return (
     <div className=" w-full  px-4">
